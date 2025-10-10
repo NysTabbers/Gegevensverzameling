@@ -11,10 +11,16 @@
 <body>
     <div class="wrapper-navbar">
         <div class="navbar">
-            <a href="Homepage.php">Home</a>
-            <a href="addRecipes.php">Add recipes</a>
-            <img src="../IMG/Logo.png" alt="Logo gebaseerd op een pan">
-            <a href="aboutUs.php">About us</a>
+            <div class="text-left">
+                <a href="Homepage.php">Home</a>
+                <a href="addRecipes.php">Add recipes</a>
+            </div>
+            <div class="image-middle">
+                <img src="../IMG/Logo.png" alt="Logo gebaseerd op een pan">
+            </div>
+            <div class="text-right">
+                <a href="aboutUs.php">About us</a>
+            </div>
         </div>
     </div>
     <div class="wrapper-image">
