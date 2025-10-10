@@ -12,11 +12,11 @@
     <div class="wrapper-navbar">
         <div class="navbar">
             <div class="text-left">
-                <a href="Homepage.php">Home</a>
+                <a href="homePage.php">Home</a>
                 <a href="addRecipes.php">Add recipes</a>
             </div>
             <div class="image-middle">
-                <img src="../IMG/Logo.png" alt="Logo gebaseerd op een pan">
+                <img class="logo" src="../IMG/Logo.png" alt="Logo gebaseerd op een pan">
             </div>
             <div class="text-right">
                 <a href="aboutUs.php">About us</a>
@@ -28,12 +28,21 @@
     </div>
     <div class="wrapper-animation">
         <div class="img-animation">
-            <img class="images" src="../IMG/pexels-valeriya-842571.jpg" alt="">
-            <img class="images" src="../IMG/pexels-jang-699953.jpg" alt="">
-            <img class="images" src="../IMG/pexels-julieaagaard-2097090.jpg" alt="">
-            <img class="images" src="../IMG/pexels-lum3n-44775-1410235.jpg" alt="">
-            <img class="images" src="../IMG/pexels-valeriya-1199957.jpg" alt="">
-            <img class="images" src="../IMG/pexels-vanmalidate-769289.jpg" alt="">
+            <div class="scroll-track">
+                <img class="images" src="../IMG/pexels-valeriya-842571.jpg" alt="">
+                <img class="images" src="../IMG/pexels-jang-699953.jpg" alt="">
+                <img class="images" src="../IMG/pexels-julieaagaard-2097090.jpg" alt="">
+                <img class="images" src="../IMG/pexels-lum3n-44775-1410235.jpg" alt="">
+                <img class="images" src="../IMG/pexels-valeriya-1199957.jpg" alt="">
+                <img class="images" src="../IMG/pexels-vanmalidate-769289.jpg" alt="">
+
+                <img class="images" src="../IMG/pexels-valeriya-842571.jpg" alt="">
+                <img class="images" src="../IMG/pexels-jang-699953.jpg" alt="">
+                <img class="images" src="../IMG/pexels-julieaagaard-2097090.jpg" alt="">
+                <img class="images" src="../IMG/pexels-lum3n-44775-1410235.jpg" alt="">
+                <img class="images" src="../IMG/pexels-valeriya-1199957.jpg" alt="">
+                <img class="images" src="../IMG/pexels-vanmalidate-769289.jpg" alt="">
+            </div>
         </div>
     </div>
 </body>

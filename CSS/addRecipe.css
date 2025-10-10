@@ -44,51 +44,43 @@ a {
     padding: 0px;
 }
 
-.wrapper-image {
+.wrapper{
     width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background{
+    width: 600px;
     height: 800px;
+    background-color: #B56B45;
+    border-radius: 25px;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.form-recept{
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.big-img {
-    width: 1440px;
-    height: 700px;
-}
-
-.wrapper-animation {
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.img-animation {
-    width: 1630px;
-    display: flex;
-    overflow: hidden;
-    box-shadow: 40px 0px black, -2.5em 0em black;
-}
-
-
-.scroll-track {
-    display: flex;
-    animation: scrollAnimation 15s linear infinite;
-}
-
-@keyframes scrollAnimation{
-    0%{ transform: translateX(0);}
-    100%{ transform: translateX(-1620px);}
-}
-
-.images {
+.receptenNaam{
     width: 250px;
-    height: 150px;
-    margin: 10px;
-    box-shadow: 10px 10px 20px black;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 20px;
 }
 
-.images:hover{
-    cursor: pointer;
+.instructies{
+    width: 450px;
+    height: 400px;
 }

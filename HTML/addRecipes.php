@@ -19,28 +19,33 @@ $ingredient = $_SESSION['ingredienten'] ?? [];
 <body>
     <div class="wrapper-navbar">
         <div class="navbar">
-            <a class="home" href="homePage.php">Home</a>
-            <a class="addRecipes" href="addRecipes.php">Add recipes</a>
-            <img class="logo" src="../IMG/Logo.svg" alt="Logo gebaseerd op een pan">
+            <div class="text-left">
+                <a href="homePage.php">Home</a>
+                <a href="addRecipes.php">Add recipes</a>
+            </div>
+            <div class="image-middle">
+                <img class="logo" src="../IMG/Logo.png" alt="Logo gebaseerd op een pan">
+            </div>
+            <div class="text-right">
+                <a href="aboutUs.php">About us</a>
+            </div>
         </div>
     </div>
     <div class="wrapper">
         <div class="background">
-            <form action="" method="POST">
+            <h1>Voeg recepten toe</h1>
+            <form class="form-recept" action="" method="POST">
                 <input class="receptenNaam" type="text" name="receptenNaam" id="naam" placeholder="Recept Naam">
                       <?php foreach ($ingredient as $ing): ?>
                         <div class="ingredient-item">
                             <input
-                                type="checkbox"
-                                name="ingredienten[]"
-                                id="ingredient-<?php echo $ing['idIngredienten']; ?>"
-                                value="<?php echo $ing['idIngredienten']; ?>">
+                                type="checkbox" name="ingredienten[]" id="ingredient-<?php echo $ing['idIngredienten']; ?>" alue="<?php echo $ing['idIngredienten']; ?>">
                             <label for="ingredient-<?php echo $ing['idIngredienten']; ?>">
                                 <?php echo htmlspecialchars($ing['ingredienten']); ?>
                             </label>
                         </div>
                     <?php endforeach; ?>
-                    <input type="textarea" name="" id="">
+                    <textarea class="instructies" name="instructies" id="instructies" placeholder="Schrijf hier de instructies voor het recept"></textarea>
             </form>
         </div>
     </div>
