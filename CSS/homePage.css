@@ -19,13 +19,21 @@ body {
     padding-right: 30px;
 }
 
-@keyframes smallToBig{
-    0% {transform: scale(0);}
-    50% {transform: scale(1);}
-    100% {transform: scale(0);}
+@keyframes smallToBig {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0);
+    }
 }
 
-.logo{
+.logo {
     width: auto;
     animation: smallToBig 5s infinite;
 }
@@ -46,7 +54,7 @@ a {
 
 .wrapper-image {
     width: 100vw;
-    height: 800px;
+    height: 700px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -54,11 +62,12 @@ a {
 
 .big-img {
     width: 1440px;
-    height: 700px;
+    height: 600px;
 }
 
 .wrapper-animation {
     width: 100vw;
+    height: 250px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -66,9 +75,10 @@ a {
 
 .img-animation {
     width: 1630px;
+    height: 250px;
     display: flex;
     overflow: hidden;
-    box-shadow: 40px 0px black, -2.5em 0em black;
+    mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
 }
 
 
@@ -77,9 +87,14 @@ a {
     animation: scrollAnimation 15s linear infinite;
 }
 
-@keyframes scrollAnimation{
-    0%{ transform: translateX(0);}
-    100%{ transform: translateX(-1620px);}
+@keyframes scrollAnimation {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-1620px);
+    }
 }
 
 .images {
@@ -89,6 +104,6 @@ a {
     box-shadow: 10px 10px 20px black;
 }
 
-.images:hover{
+.images:hover {
     cursor: pointer;
 }

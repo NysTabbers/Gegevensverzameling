@@ -80,6 +80,14 @@ a {
     margin-bottom: 20px;
 }
 
+.receptenDuur{
+    width: 250px;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 20px;
+}
+
 .instructies{
     width: 450px;
     height: 400px;

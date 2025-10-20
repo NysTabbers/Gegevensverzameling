@@ -36,6 +36,7 @@ $ingredient = $_SESSION['ingredienten'] ?? [];
             <h1>Voeg recepten toe</h1>
             <form class="form-recept" action="" method="POST">
                 <input class="receptenNaam" type="text" name="receptenNaam" id="naam" placeholder="Recept Naam">
+                <input class="receptenDuur" type="text" name="receptenDuur" id="duur" placeholder="Recept Duur">
                       <?php foreach ($ingredient as $ing): ?>
                         <div class="ingredient-item">
                             <input
