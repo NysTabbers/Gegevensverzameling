@@ -1,3 +1,17 @@
+<?php
+
+session_start();
+
+if($_SESSION["recepten"] === null){
+    header("Location: ../PHP backend/getRecipeNameAndImg.php");
+    exit;
+}
+else{
+    $recepten = $_SESSION["recepten"];
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +24,7 @@
 </head>
 
 <body>
-  <?php require "required.php" ?>
+    <?php require "required.php" ?>
     <div class="wrapper-image">
         <img class="big-img" src="../IMG/pexels-ash-craig-122861-376464.jpg" alt="">
     </div>
@@ -33,6 +47,16 @@
             </div>
         </div>
     </div>
+<div class="wrapper-recepten">
+    <?php foreach ($recepten as $recept): ?>
+        <a class="recepten-link" href="recepten.php?id=<?= htmlspecialchars($recept['idRecepten']) ?>">
+            <div class="recepten">
+                <img class="img" src="<?= htmlspecialchars($recept['img']) ?>" alt="<?= htmlspecialchars($recept['naam']) ?>">
+                <p><?= htmlspecialchars($recept['naam']) ?></p>
+            </div>
+        </a>
+    <?php endforeach; ?>
+</div>
 </body>
 
 </html>

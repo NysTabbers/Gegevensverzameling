@@ -33,7 +33,7 @@ $ingredient = $_SESSION['ingredienten'];
                         </label>
                     </div>
                 <?php endforeach; ?>
-                <input type="text" name="nieuwIngredient" id="nieuwIngredient" class="nieuwIngredient" placeholder="Ingredient staat er niet in. Voeg een nieuwe toe hier">
+                <input type="text" name="nieuwIngredient" id="nieuwIngredient" class="nieuwIngredient" placeholder="Ingredient staat er niet in. Voeg een nieuwe toe">
                 <div class="file-upload-wrapper">
                     <label for="file-upload" class="custom-file-upload">
                         Kies een bestand

@@ -8,25 +8,27 @@ $password = "";
 $db = "recepten";
 
 $conn = new mysqli($name, $user, $password, $db);
+
 if ($conn->connect_error) {
-    die("connection failed" . $conn->connect_error);
+    die("Connection failed" . $conn->connect_error);
 }
+
 try {
-    $sql = "SELECT idIngredienten, ingredienten FROM ingredienten";
+    $sql = "SELECT recepten.idRecepten, recepten.naam, recepten.idImages, images.img FROM recepten INNER JOIN images ON recepten.idImages = images.idImages";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $result = $stmt->get_result();
 
-    $ingredienten = [];
+    $recepten = [];
     while ($row = $result->fetch_assoc()) {
-        $ingredienten[] = $row;
+        $recepten[] = $row;
     }
 
-    $_SESSION['ingredienten'] = $ingredienten;
+    $_SESSION["recepten"] = $recepten;
 } catch (Exception $e) {
     die("Dit was een error: " . $e->getMessage());
 } finally {
     $conn->close();
     $stmt->close();
-    header("Location: ../HTML/addRecipes.php");
+    header("Location: ../HTML/homePage.php");
 }
