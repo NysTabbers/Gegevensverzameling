@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 $name = "localhost";
 $user = "root";
 $password = "";
@@ -10,17 +12,17 @@ if ($conn->connect_error) {
     die("connection failed" . $conn->connect_error);
 }
 try{
-$sql = "SELECT idIngredienten, ingredienten FROM gebruikers";
+$sql = "SELECT idIngredienten, ingredienten FROM ingredienten";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 $result = $stmt->get_result();
 
-$items = [];
+$ingredienten = [];
 while ($row = $result->fetch_assoc()) {
-    $items[] = $row;
+    $ingredienten[] = $row;
 }
 
-$_SESSION['items_list'] = $items;
+$_SESSION['ingredienten'] = $ingredienten;
 
 }
 catch(Exception $e){
@@ -29,6 +31,7 @@ catch(Exception $e){
 finally{
     $conn->close();
     $stmt->close();
+    header("Location: ../HTML/addRecipes.php");
 }
 
 ?>

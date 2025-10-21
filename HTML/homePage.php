@@ -6,23 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../CSS/homePage.css">
+    <link rel="stylesheet" href="../CSS/navbar.css">
 </head>
 
 <body>
-    <div class="wrapper-navbar">
-        <div class="navbar">
-            <div class="text-left">
-                <a href="homePage.php">Home</a>
-                <a href="addRecipes.php">Add recipes</a>
-            </div>
-            <div class="image-middle">
-                <img class="logo" src="../IMG/Logo.png" alt="Logo gebaseerd op een pan">
-            </div>
-            <div class="text-right">
-                <a href="aboutUs.php">About us</a>
-            </div>
-        </div>
-    </div>
+  <?php require "required.php" ?>
     <div class="wrapper-image">
         <img class="big-img" src="../IMG/pexels-ash-craig-122861-376464.jpg" alt="">
     </div>
