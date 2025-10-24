@@ -44,11 +44,12 @@
 }
 
 .nieuwIngredient{
-    width: 300px;
+    width: 220px;
     height: 30px;
     border-radius: 5px;
     border: none;
     margin-top: 5px;
+    text-align: center;
 }
 
 .instructies{

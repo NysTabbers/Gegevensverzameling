@@ -30,5 +30,4 @@ try {
 } finally {
     $conn->close();
     $stmt->close();
-    header("Location: ../HTML/homePage.php");
 }

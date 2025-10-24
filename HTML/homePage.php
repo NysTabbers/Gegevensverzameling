@@ -49,10 +49,10 @@ else{
     </div>
 <div class="wrapper-recepten">
     <?php foreach ($recepten as $recept): ?>
-        <a class="recepten-link" href="recepten.php?id=<?= htmlspecialchars($recept['idRecepten']) ?>">
+        <a class="recepten-link" href="recepten.php?id=<?= $recept['idRecepten'] ?>">
             <div class="recepten">
-                <img class="img" src="<?= htmlspecialchars($recept['img']) ?>" alt="<?= htmlspecialchars($recept['naam']) ?>">
-                <p><?= htmlspecialchars($recept['naam']) ?></p>
+                <img class="img" src="<?= $recept['img'] ?>" alt="<?= $recept['naam'] ?>">
+                <p><?=$recept['naam'] ?></p>
             </div>
         </a>
     <?php endforeach; ?>

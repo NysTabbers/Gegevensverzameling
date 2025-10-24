@@ -22,18 +22,18 @@ $ingredient = $_SESSION['ingredienten'];
     <div class="wrapper">
         <div class="background">
             <h1>Voeg recepten toe</h1>
-            <form class="form-recept" action="" method="POST" enctype="multipart/form-data">
-                <input class=" receptenNaam" type="text" name="receptenNaam" id="naam" placeholder="Recept Naam" required>
+            <form class="form-recept" action="../PHP backend/insertIntoDB.php" method="POST" enctype="multipart/form-data">
+                <input class="receptenNaam" type="text" name="receptenNaam" id="naam" placeholder="Recept Naam" required>
                 <input class="receptenDuur" type="text" name="receptenDuur" id="duur" placeholder="Recept Duur" required>
                 <?php foreach ($ingredient as $ing): ?>
                     <div class="ingredient-item">
-                        <input required type="checkbox" name="ingredienten" id="ingredient-<?php echo $ing['idIngredienten']; ?>" value="<?php echo $ing['idIngredienten']; ?>">
+                        <input type="checkbox" name="ingredienten[]" id="ingredient-<?php echo $ing['idIngredienten']; ?>" value="<?php echo $ing['idIngredienten']; ?>">
                         <label for="ingredient-<?php echo $ing['idIngredienten']; ?>">
-                            <?php echo htmlspecialchars($ing['ingredienten']); ?>
+                            <?php echo $ing['ingredienten']; ?>
                         </label>
                     </div>
                 <?php endforeach; ?>
-                <input type="text" name="nieuwIngredient" id="nieuwIngredient" class="nieuwIngredient" placeholder="Ingredient staat er niet in. Voeg een nieuwe toe">
+                <input type="text" name="nieuwIngredient" id="nieuwIngredient" class="nieuwIngredient" placeholder="Ingredient staat er niet in. Typ hier">
                 <div class="file-upload-wrapper">
                     <label for="file-upload" class="custom-file-upload">
                         Kies een bestand
