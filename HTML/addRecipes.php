@@ -18,7 +18,7 @@ $ingredient = $_SESSION['ingredienten'];
 </head>
 
 <body>
-    <?php require "required.php" ?>
+    <?php require "navbar.php" ?>
     <div class="wrapper">
         <div class="background">
             <h1>Voeg recepten toe</h1>

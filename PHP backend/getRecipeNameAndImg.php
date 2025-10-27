@@ -1,11 +1,15 @@
 <?php
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+
 session_start();
 
 $name = "localhost";
 $user = "root";
 $password = "";
-$db = "recepten";
+$db = "recept";
 
 $conn = new mysqli($name, $user, $password, $db);
 
@@ -28,6 +32,7 @@ try {
 } catch (Exception $e) {
     die("Dit was een error: " . $e->getMessage());
 } finally {
-    $conn->close();
-    $stmt->close();
+    if (isset($stmt)) $stmt->close();
+    if (isset($conn)) $conn->close();
+    header("Location: ../HTML/homePage.php");
 }

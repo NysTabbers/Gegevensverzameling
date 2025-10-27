@@ -55,6 +55,8 @@
     height: auto;
     display: flex;
     padding: 50px;
+    align-items: center;
+    justify-content: center;
 }
 
 a.recepten-link{
@@ -71,6 +73,7 @@ a.recepten-link{
     flex-direction: column;
     border: 1px solid gray;
     border-radius: 20px;
+    margin: 30px;
 }
 
 .img{

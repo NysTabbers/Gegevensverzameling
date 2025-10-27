@@ -1,7 +1,7 @@
     <div class="wrapper-navbar">
         <div class="navbar">
             <div class="text-left">
-                <a href="homePage.php">Home</a>
+                <a href="../PHP backend/getRecipeNameAndImg.php">Home</a>
                 <a href="../PHP backend/haalIngredientenOp.php">Add recipes</a>
             </div>
             <div class="image-middle">

@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <?php require "required.php" ?>
+    <?php require "navbar.php" ?>
     <div class="wrapper">
         <div class="wrapper-upper">
             <div class="left-img">

@@ -5,7 +5,7 @@ session_start();
 $name = "localhost";
 $user = "root";
 $password = "";
-$db = "recepten";
+$db = "recept";
 
 $conn = new mysqli($name, $user, $password, $db);
 if ($conn->connect_error) {

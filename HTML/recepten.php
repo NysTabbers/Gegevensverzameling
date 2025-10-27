@@ -7,6 +7,6 @@
     <link rel="stylesheet" href="../CSS/navbar.css">
 </head>
 <body>
-    <?php require "required.php" ?>
+    <?php require "navbar.php" ?>
 </body>
 </html>
