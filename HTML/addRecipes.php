@@ -14,7 +14,6 @@ $ingredient = $_SESSION['ingredienten'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../CSS/addRecipe.css">
-    <link rel="stylesheet" href="../CSS/navbar.css">
 </head>
 
 <body>
