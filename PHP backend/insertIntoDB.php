@@ -12,10 +12,11 @@ try {
     $dbname     = "recept";
 
     $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn->begin_transaction();
 
-    $receptNaam = htmlspecialchars($_POST['receptenNaam']);
-    $receptDuur = htmlspecialchars($_POST['receptenDuur']);
-    $beschrijving = htmlspecialchars($_POST['instructies']);
+    $receptNaam = htmlspecialchars(trim($_POST['receptenNaam']));
+    $receptDuur = htmlspecialchars(trim($_POST['receptenDuur']));
+    $beschrijving = htmlspecialchars(trim($_POST['instructies']));
     $gekozenIngredienten = isset($_POST['ingredienten']) ? $_POST['ingredienten'] : [];
     $nieuwIngredient = htmlspecialchars(trim($_POST['nieuwIngredient']));
 
@@ -40,12 +41,41 @@ try {
 
     $idImage = NULL;
     if (isset($_FILES['myfile']) && $_FILES['myfile']['error'] === UPLOAD_ERR_OK) {
-        $imageData = file_get_contents($_FILES['myfile']['tmp_name']); // binary data
+        $imageData = file_get_contents($_FILES['myfile']['tmp_name']);
+
+        $checkImg = $conn->prepare("SELECT idImages FROM images WHERE img = ?");
+        $checkImg->bind_param("b", $imageData);
+        $checkImg->send_long_data(0, $imageData);
+        $checkImg->execute();
+        $resultImg = $checkImg->get_result();
+
+        if ($resultImg->num_rows > 0) {
+            throw new Exception("This image already exists. Nothing was saved.");
+        }
+
         $insertImg = $conn->prepare("INSERT INTO images (img) VALUES (?)");
         $insertImg->bind_param("b", $imageData);
         $insertImg->send_long_data(0, $imageData);
         $insertImg->execute();
         $idImage = $insertImg->insert_id;
+    }
+
+    $checkDesc = $conn->prepare("SELECT idBeschrijving FROM beschrijving WHERE LOWER(beschrijving) = LOWER(?)");
+    $checkDesc->bind_param("s", $beschrijving);
+    $checkDesc->execute();
+    $resultDesc = $checkDesc->get_result();
+
+    if ($resultDesc->num_rows > 0) {
+        throw new Exception("This description already exists. Nothing was saved.");
+    }
+
+    $checkRecept = $conn->prepare("SELECT idRecepten FROM recepten WHERE LOWER(naam) = LOWER(?)");
+    $checkRecept->bind_param("s", $receptNaam);
+    $checkRecept->execute();
+    $resultRecept = $checkRecept->get_result();
+
+    if ($resultRecept->num_rows > 0) {
+        throw new Exception("This recipe already exists. Nothing was saved.");
     }
 
     $insertDesc = $conn->prepare("INSERT INTO beschrijving (beschrijving) VALUES (?)");
@@ -69,11 +99,16 @@ try {
         }
     }
 
-} catch (mysqli_sql_exception $e) {
-    echo "Database error: " . $e->getMessage();
-} catch (Exception $e) {
-    echo "Error: " . $e->getMessage();
-} finally {
-    $conn->close();
+    $conn->commit();
     header("Location: getRecipeNameAndImg.php");
+    exit;
+
+} catch (Exception $e) {
+    if (isset($conn)) $conn->rollback();
+    $_SESSION['error_message'] = $e->getMessage();
+    header("Location: ../HTML/errorPage.php");
+    exit;
+
+} finally {
+    if (isset($conn)) $conn->close();
 }
